@@ -1,5 +1,9 @@
 Structure of DataBase
 
+manimimanami
+
+
+
 ## User
 ### association
 
