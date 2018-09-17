@@ -6,7 +6,7 @@ sasukesasuke
 ```
 has_many :prototypes, likes, comments
 ```
-
+kojikoji
 ### table
 - name
 - email
