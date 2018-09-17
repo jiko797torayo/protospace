@@ -1,5 +1,5 @@
 Structure of DataBase
-sasukesasuke
+
 ## User
 ### association
 
