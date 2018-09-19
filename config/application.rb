@@ -6,10 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
 module Miuraspace
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
-    
     config.generators do |g|
       g.test_framework       false
       g.helper               false
