@@ -33,6 +33,38 @@ body {
   color: rgba(0, 0, 0, 0.87);
 }
 
+.border-btn{
+    display: inline-block;
+    position: relative;
+    padding: 0.25em 1em;
+    border-top: solid 2px #C2EEFF;
+    border-bottom: solid 2px #C2EEFF;
+    text-decoration: none;
+    font-weight: bold;
+    color: #03A9F4;
+}
+.border-btn:before, .border-btn:after{
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: -webkit-calc(100% + 14px);
+  height: calc(100% + 14px);
+  background-color: #C2EEFF;
+  transition: .3s;
+}
+.border-btn:before {left: 7px;}
+.border-btn:after {right: 7px;}
+.border-btn:hover:before{
+  top: 0px;
+  left:0;
+  height: 100%;
+}
+.border-btn:hover:after{
+  top: 0px;
+  right: 0;
+  height: 100%;
+}
 
 /* -- Buttons style ------------------------------------ */
 .btn {
