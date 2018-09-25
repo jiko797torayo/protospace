@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405022520) do
+ActiveRecord::Schema.define(version: 20180925013634) do
 
   create_table "captured_images", force: :cascade do |t|
     t.string  "content"
@@ -20,6 +20,25 @@ ActiveRecord::Schema.define(version: 20160405022520) do
   end
 
   add_index "captured_images", ["prototype_id"], name: "index_captured_images_on_prototype_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+
+  create_table "prototype_categories", force: :cascade do |t|
+    t.integer  "prototype_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "prototype_categories", ["category_id"], name: "index_prototype_categories_on_category_id"
+  add_index "prototype_categories", ["prototype_id", "category_id"], name: "index_prototype_categories_on_prototype_id_and_category_id", unique: true
+  add_index "prototype_categories", ["prototype_id"], name: "index_prototype_categories_on_prototype_id"
 
   create_table "prototypes", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160405022520) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "prototypes", ["user_id", "created_at"], name: "index_prototypes_on_user_id_and_created_at"
   add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id"
 
   create_table "users", force: :cascade do |t|
