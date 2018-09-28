@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'sqlite3', group: :development
 gem 'pg', '~> 0.19.0', group: :production
+gem 'fog-aws'
 
 
 
