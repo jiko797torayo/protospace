@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'oec-folder'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/oec-folder'
+  config.fog_directory  = 'protospace-dwayne'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/protospace-dwayne'
 end
