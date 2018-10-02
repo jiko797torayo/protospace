@@ -7,7 +7,7 @@ class PrototypeImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :fog
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -55,7 +55,7 @@ class PrototypeImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  def default_url
-    '/uploads/noimage.png'
-  end
+  # def default_url
+  #   '/uploads/noimage.png'
+  # end
 end
