@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: [:show, :destroy]
+  before_action :set_prototype, only: [:show, :destroy, :edit, :update]
 
   def index
     @prototypes = Prototype.includes(:user).page(params[:page]).per(5).order("created_at DESC")
@@ -26,6 +26,21 @@ class PrototypesController < ApplicationController
     @prototype.destroy if @prototype.user_id == current_user.id
   end
 
+  def edit
+    @main_image = @prototype.captured_images.main.first
+    @sub_images = @prototype.captured_images.sub
+  end
+
+  def update
+    if @prototype.user_id == current_user.id
+      @prototype.update(prototype_params)
+      flash[:notice] = "更新しました"
+      render :show
+    else
+      redirect_to :root
+    end
+  end
+
   private
 
   def set_prototype
@@ -38,7 +53,7 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:content, :status]
+      captured_images_attributes: [:id,:content, :status]
     )
   end
 end
