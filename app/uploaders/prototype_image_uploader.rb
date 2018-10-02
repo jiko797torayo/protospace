@@ -35,6 +35,9 @@ class PrototypeImageUploader < CarrierWave::Uploader::Base
   version :large do
     process :resize_to_fit => [800, 500]
   end
+  version :small do
+    process :resize_to_fit => [250, nil]
+  end
   #
   # version :sub_thumb do
   #   process :resize_to_fit => [50, 50]
