@@ -12,7 +12,7 @@
           %h4 Main Thumbnail
           .cover-image-upload#main_image_uploader{style: "background-image: url(#{@main_image.content.large});" "width: 100%"}
             = f.fields_for :captured_images, @main_image do |image|
-              = image.file_field :content, required: true
+              = image.file_field :content
               = image.hidden_field :status, value: "main"
         .col-md-12
           %h4 Sub Thumbnails
