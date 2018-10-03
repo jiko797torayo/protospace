@@ -10,4 +10,4 @@
       .proto-posted
         = prototype.posted_date
   .like-btn.in-thumbnail{:id => "like-of-#{prototype.id}"}
-      = render partial: 'likes/like', locals:{ prototype: prototype, likes: @likes }
+    = render partial: 'likes/like', locals:{ prototype: prototype, likes: @likes }
