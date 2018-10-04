@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :destroy, :edit, :update]
 
   def index
-    @prototypes = Prototype.includes(:user).page(params[:page]).per(5).order("created_at DESC")
+    @prototypes = Prototype.includes(:user).page(params[:page]).per(5).order(params[:sort])
   end
 
   def new
@@ -16,7 +16,7 @@ class PrototypesController < ApplicationController
       redirect_to :root, notice: 'New prototype was successfully created'
     else
       redirect_to ({ action: new }), alert: 'YNew prototype was unsuccessfully created'
-     end
+    end
   end
 
   def show
@@ -39,6 +39,10 @@ class PrototypesController < ApplicationController
     else
       redirect_to :root
     end
+  end
+
+  def sort_likes
+    
   end
 
   private
