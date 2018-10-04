@@ -19,7 +19,7 @@ gem 'rmagick'
 gem 'sqlite3', group: :development
 gem 'pg', '~> 0.19.0', group: :production
 gem 'fog-aws'
-gem 'font-awesome-sass', '~> 5.3.1'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug'
