@@ -40,11 +40,7 @@ class PrototypesController < ApplicationController
       redirect_to :root
     end
   end
-
-  def sort_likes
-    
-  end
-
+  
   private
 
   def set_prototype
