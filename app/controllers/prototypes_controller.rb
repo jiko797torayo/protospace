@@ -61,3 +61,4 @@ class PrototypesController < ApplicationController
     params[:sort] || 'created_at DESC'
   end
 end
+
