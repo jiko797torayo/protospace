@@ -2,7 +2,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:show, :destroy, :edit, :update]
 
   def index
-    @prototypes = Prototype.includes(:user).page(params[:page]).per(5).order(params[:sort])
+    @prototypes = Prototype.includes(:user).page(params[:page]).per(5).order(sort)
   end
 
   def new
@@ -41,10 +41,6 @@ class PrototypesController < ApplicationController
     end
   end
 
-  def sort_likes
-    
-  end
-
   private
 
   def set_prototype
@@ -59,5 +55,9 @@ class PrototypesController < ApplicationController
       :user_id,
       captured_images_attributes: [:id,:content, :status]
     )
+  end
+
+  def sort
+    params[:sort] || 'created_at DESC'
   end
 end
