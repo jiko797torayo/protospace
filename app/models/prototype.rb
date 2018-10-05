@@ -3,6 +3,7 @@ class Prototype < ActiveRecord::Base
   has_many :captured_images, dependent: :destroy
                 #親要素のprototypeが削除されたらそれに付随するlikeも削除する
   has_many :likes, dependent: :destroy
+  has_many :comments
 
   accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images
 
