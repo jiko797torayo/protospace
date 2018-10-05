@@ -43,3 +43,21 @@
           %a{href: "#", class: "btn btn-default"} iPad
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
+  .row.comments-area
+    .col-md-6
+      - if current_user
+        = form_for [@prototype, @comment] do |f|
+          = f.text_field :text, placeholder: "コメントする", prototype_id: @prototype.id
+          = f.submit "Send"
+      %h4 ＜コメント一覧＞
+      .comments
+        - if @comments
+          - @comments.each do |comment|
+            %p
+              %strong
+                = link_to comment.user.name, "/users/#{comment.user_id}"
+                ：
+              = comment.text
+              - if current_user.id == comment.user_id
+                = link_to "編集", "#"
+                = link_to "削除", "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete
